@@ -156,6 +156,9 @@ export default function ProblemSolution() {
             >
                 <div className="absolute inset-0 bg-black/40 z-0"></div>
                 <div className="z-10 w-full max-w-lg">
+                    <div className="mb-8 inline-block rounded-full bg-white/10 px-6 py-2 text-xs font-black uppercase tracking-[0.4em] text-white/40 hover:text-white border border-white/10 hover:bg-red-500/50">
+                        The Challenge
+                    </div>
                     <ProblemAnimation />
                     <h2 className="mb-6 font-heading text-4xl font-bold tracking-tight text-white/70">
                         The Energy Gap
@@ -178,6 +181,9 @@ export default function ProblemSolution() {
                 <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/20 blur-[100px]"></div>
 
                 <div className="z-10 w-full max-w-lg">
+                    <div className="mb-8 inline-block rounded-full bg-primary/10 px-6 py-2 text-xs font-black uppercase tracking-[0.4em] text-primary/60 border border-primary/20 hover:text-white hover:bg-primary/80">
+                        The Solution
+                    </div>
                     <SolutionAnimation />
                     <h2 className="mb-6 font-heading text-4xl font-bold tracking-tight text-primary">
                         The TAS Solution

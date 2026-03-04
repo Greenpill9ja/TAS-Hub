@@ -1,11 +1,13 @@
+"use client";
+
 import { Twitter, Github } from "lucide-react";
 
 export default function Footer() {
     const team = [
-        { name: "Anthony Amio", role: "Co-Founder" },
-        { name: "Mmeri Anosike", role: "Lead Engineer" },
-        { name: "Nansel Rimsah", role: "Design &Engineer" },
-        { name: "Afolabi Aiyeloja", role: "Operations" },
+        { name: "Anthony Amio", role: "Operations", image: "/amio.png" },
+        { name: "Mmeri Anosike", role: "Solar Engineer", image: "/nmeri.png" },
+        { name: "Nansel Rimsah", role: "Designer & Engineer", image: "/nansel.png" },
+        { name: "Afolabi Aiyeloja", role: "Operations", image: "/afo.png" },
     ];
 
     return (
@@ -20,8 +22,20 @@ export default function Footer() {
                         {team.map((member, i) => (
                             <div key={i} className="flex flex-col items-center group cursor-pointer">
                                 {/* Avatar with Glass Border */}
-                                <div className="h-32 w-32 md:h-40 md:w-40 rounded-full border border-primary/40 bg-white/20 p-2 shadow-[0_0_30px_-5px_var(--color-primary)] transition-transform group-hover:-translate-y-2 backdrop-blur-sm mb-6">
-                                    <div className="h-full w-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center font-heading text-dark/30 font-bold text-2xl">
+                                <div className="h-32 w-32 md:h-40 md:w-40 rounded-full border border-primary/40 bg-white/20 p-2 shadow-[0_0_30px_-5px_var(--color-primary)] transition-transform group-hover:-translate-y-2 backdrop-blur-sm mb-6 flex items-center justify-center overflow-hidden">
+                                    {member.image ? (
+                                        <img
+                                            src={member.image}
+                                            alt={member.name}
+                                            className="h-full w-full rounded-full object-cover"
+                                            onError={(e) => {
+                                                // Fallback if image fails to load
+                                                (e.target as HTMLImageElement).style.display = 'none';
+                                                (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+                                            }}
+                                        />
+                                    ) : null}
+                                    <div className={`${member.image ? 'hidden' : ''} h-full w-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center font-heading text-dark/30 font-bold text-2xl`}>
                                         {member.name.charAt(0)}
                                     </div>
                                 </div>
@@ -36,7 +50,7 @@ export default function Footer() {
                     <p className="font-body text-xl font-medium text-dark/70 mb-8 max-w-xl">
                         Join us in building physical infrastructure for decentralized systems in Africa.
                     </p>
-                    <a href="mailto:contact@techandsun.com" className="group rounded-full bg-secondary px-10 py-5 font-heading text-xl font-bold text-dark shadow-xl transition-all hover:scale-105 hover:bg-yellow-400 hover:shadow-yellow-400/50 flex flex-col items-center">
+                    <a href="mailto:[techandsunhub@gmail.com]" className="group rounded-full bg-secondary px-10 py-5 font-heading text-xl font-bold text-dark shadow-xl transition-all hover:scale-105 hover:bg-yellow-400 hover:shadow-yellow-400/50 flex flex-col items-center">
                         <span>Get in Touch</span>
                     </a>
                 </div>

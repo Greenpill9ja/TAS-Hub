@@ -2,8 +2,10 @@
 
 import { useScroll, useTransform, motion, MotionValue, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
-import { Sun, Satellite, Battery, Box, Smartphone, X, Plus } from "lucide-react";
+import Link from "next/link";
+import { Sun, Satellite, Battery, Box, Smartphone, X, Plus, ArrowRight } from "lucide-react";
 import { AnimatedLines } from "../ui/AnimatedLines";
+import { p } from "framer-motion/client";
 
 
 const parts = [
@@ -58,7 +60,7 @@ const parts = [
     },
     {
         id: 5,
-        name: "Greenpayer App for Local Payment",
+        name: "Monie Point & Green Goods App",
         icon: "/Payment (POS).png",
         startY: 300,
         startX: -200,
@@ -66,7 +68,9 @@ const parts = [
         endX: 0,
         rotate: -3,
         color: "bg-vibrant/80 backdrop-blur text-dark border border-primary md:border-2",
-        description: "Our custom payment gateway allowing locals to pay for electricity and internet services using simplified mobile interfaces and local payment methods."
+        description: "Green Goods App for capturing solar hub development and Monie Point for local payment gateway allowing locals to pay for electricity and internet services fast and easy.",
+        action: { label: "view TAS Garden", href: "/garden" }
+
     },
 ];
 
@@ -226,6 +230,16 @@ export default function TheStack() {
                                 <p className="font-body text-lg md:text-xl font-medium leading-relaxed opacity-90">
                                     {selectedItem.description}
                                 </p>
+
+                                {selectedItem.action && (
+                                    <Link
+                                        href={selectedItem.action.href}
+                                        className="mt-8 flex items-center gap-2 px-6 py-2 rounded-full bg-white/20 hover:bg-white/30 transition-all font-bold text-sm uppercase tracking-wider group/btn border border-white/30"
+                                    >
+                                        {selectedItem.action.label}
+                                        <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                                    </Link>
+                                )}
                             </div>
                         </motion.div>
                     </motion.div>

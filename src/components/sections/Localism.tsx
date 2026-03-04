@@ -42,29 +42,7 @@ export default function Localism() {
             </div>
 
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                {/* Card 1: Enugu */}
-                <motion.div
-                    initial={{ opacity: 0, x: -100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ type: "spring", stiffness: 50, damping: 20 }}
-                    className="group relative w-full max-w-md overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer"
-                >
-                    <div className="aspect-[4/3] w-full bg-dark/5 relative overflow-hidden">
-                        <img src="/tas-hub.png" alt="TAS Hub Enugu" className="w-full h-full object-cover" />
-                        <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
-                    </div>
-                    <div className="p-8 relative z-10 bg-white">
-                        <h3 className="mb-2 font-heading text-3xl font-bold text-primary">
-                            TAS Hub Enugu
-                        </h3>
-                        <p className="font-body text-dark/80">
-                            Specific student population data & Research Hub.
-                        </p>
-                    </div>
-                </motion.div>
-
-                {/* Card 2: Anambra */}
+                {/* Card 1: Anambra */}
                 <motion.div
                     initial={{ opacity: 0, x: 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -75,6 +53,15 @@ export default function Localism() {
                     <div className="aspect-[4/3] w-full bg-dark/5 relative overflow-hidden">
                         <img src="/the-stack.png" alt="TAS Hub Awka" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-accent/20 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
+
+                        {/* Status Indicator */}
+                        <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1 shadow-sm border border-emerald-500/20">
+                            <span className="relative flex h-2 w-2">
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75"></span>
+                                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                            </span>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600">Active</span>
+                        </div>
                     </div>
                     <div className="p-8 relative z-10 bg-white">
                         <h3 className="mb-2 font-heading text-3xl font-bold text-accent">
@@ -82,6 +69,32 @@ export default function Localism() {
                         </h3>
                         <p className="font-body text-dark/80">
                             Site-specific construction status & Staking Node deployment.
+                        </p>
+                    </div>
+                </motion.div>
+                {/* Card 2: Enugu */}
+                <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ type: "spring", stiffness: 50, damping: 20 }}
+                    className="group relative w-full max-w-md overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer"
+                >
+                    <div className="aspect-[4/3] w-full bg-dark/5 relative overflow-hidden">
+                        <img src="/tas-hub.png" alt="TAS Hub Enugu" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
+
+                        {/* Status Indicator */}
+                        <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 rounded-full bg-dark/80 backdrop-blur-sm px-3 py-1 shadow-sm border border-white/10">
+                            <span className="text-[10px] font-black uppercase tracking-widest text-white/70">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div className="p-8 relative z-10 bg-white">
+                        <h3 className="mb-2 font-heading text-3xl font-bold text-primary">
+                            TAS Hub Enugu
+                        </h3>
+                        <p className="font-body text-dark/80">
+                            Specific student population data & Research Hub.
                         </p>
                     </div>
                 </motion.div>
