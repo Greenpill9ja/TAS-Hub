@@ -2,18 +2,19 @@ import Hero from "@/components/sections/Hero";
 import ImpactTracker from "@/components/sections/ImpactTracker";
 import ProblemSolution from "@/components/sections/ProblemSolution";
 import Localism from "@/components/sections/Localism";
+import HubActivities from "@/components/sections/HubActivities";
 import TheStack from "@/components/sections/TheStack";
 import Roadmap from "@/components/sections/Roadmap";
 import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="relative bg-white text-dark w-full overflow-x-hidden">
+    <main className="relative bg-vibrant text-dark w-full overflow-x-hidden">
       <Hero />
-      <ImpactTracker variant="inline" />
-      <ImpactTracker variant="sticky" />
       <ProblemSolution />
+      <ImpactTracker variant="inline" />
       <Localism />
+      <HubActivities />
       <TheStack />
       <Roadmap />
       <Footer />

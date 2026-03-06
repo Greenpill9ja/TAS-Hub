@@ -145,7 +145,7 @@ export default function Hero() {
 
                         <h1 className="font-heading text-4xl font-black leading-[1.1] text-dark md:text-6xl lg:text-6xl">
                             Tech And Sun <br />
-                            <span className="text-primary italic">Powering</span> <br />
+                            <span className="text-primary">Powering</span> <br />
                             Next Generation
                         </h1>
 

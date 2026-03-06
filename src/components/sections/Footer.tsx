@@ -4,10 +4,10 @@ import { Twitter, Github } from "lucide-react";
 
 export default function Footer() {
     const team = [
-        { name: "Anthony Amio", role: "Operations", image: "/amio.png" },
-        { name: "Mmeri Anosike", role: "Solar Engineer", image: "/nmeri.png" },
-        { name: "Nansel Rimsah", role: "Designer & Engineer", image: "/nansel.png" },
-        { name: "Afolabi Aiyeloja", role: "Operations", image: "/afo.png" },
+        { name: "Anthony Amio", role: "Head of Operations", image: "/amio.png" },
+        { name: "Mmeri Anosike", role: "Lead Solar Engineer", image: "/nmeri.png" },
+        { name: "Nansel Rimsah", role: "Lead Engineer & Designer", image: "/nansel.png" },
+        { name: "Afolabi Aiyeloja", role: "Community Lead", image: "/afo.png" },
     ];
 
     return (
@@ -16,8 +16,31 @@ export default function Footer() {
 
                 <div className="mb-20">
                     <h2 className="font-heading text-4xl md:text-5xl font-bold text-dark mb-12">
-                        Meet the Builders
+                        Meet the team
                     </h2>
+
+                    {/* Izzy Tribute */}
+                    <div className="mb-16 w-full max-w-2xl mx-auto bg-dark rounded-3xl p-8 relative overflow-hidden shadow-xl border border-white/10 group">
+                        {/* Decorative glow */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none group-hover:bg-primary/30 transition-colors"></div>
+
+                        <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+                            <div className="h-28 w-28 shrink-0 rounded-full border-4 border-primary/30 p-1 bg-white/5 overflow-hidden">
+                                <div className="h-full w-full rounded-full bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center overflow-hidden">
+                                    <img src="/Izzy.png" alt="Izzy" className="w-full h-full object-cover" />
+                                </div>
+                            </div>
+                            <div className="flex flex-col flex-1 text-white">
+                                <span className="text-primary font-black uppercase tracking-widest text-[10px] mb-2 inline-block">In Loving Memory</span>
+                                <h3 className="font-heading text-2xl font-bold mb-1">Izzy</h3>
+                                <p className="font-heading text-sm text-white/60 mb-3 font-medium">Founder, Tech and Sun Initiative</p>
+                                <p className="font-body text-sm text-white/80 leading-relaxed max-w-sm">
+                                    The visionary architect behind the TAS mission. His legacy and commitment to <span className="text-secondary font-black uppercase tracking-widest text-[10px] mb-2 inline-block">Powering Nigeria's next generation</span> continues to drive every container we deploy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16">
                         {team.map((member, i) => (
                             <div key={i} className="flex flex-col items-center group cursor-pointer">

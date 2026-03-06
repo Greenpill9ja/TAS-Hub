@@ -1,0 +1,111 @@
+"use client";
+
+import { Calendar, ArrowRight, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+export default function HubActivities() {
+    // Placeholder activities data
+    const activities = [
+        {
+            id: 1,
+            title: "TAS Hub Awka Launch",
+            date: "March 17, 2026",
+            location: "TAS Hub Awka",
+            type: "Launch",
+            description: "The official commisioning of the the TAS Hub in Univerty of Nigeria."
+        },
+        {
+            id: 2,
+            title: "Web3 Developer Bootcamp",
+            date: "May 15-20, 2026",
+            location: "TAS Hub Awka",
+            type: "Course",
+            description: "Intensive 5-day bootcamp covering Ethereum smart contracts and frontend integration."
+        },
+        {
+            id: 3,
+            title: "Community Townhall",
+            date: "June 1, 2026",
+            location: "Virtual / TAS Hub",
+            type: "Community",
+            description: "Monthly discussion addressing community goals, governance, and Q3 expansion plans."
+        },
+        {
+            id: 4,
+            title: "Node Operators Meetup",
+            date: "June 10, 2026",
+            location: "TAS Hub Awka",
+            type: "Meetup",
+            description: "Networking session for current and prospective node operators in the ecosystem."
+        }
+    ];
+
+    return (
+        <section className="relative w-full overflow-hidden bg-white py-16 md:py-24 px-4 border-t border-dark/5">
+            <div className="container mx-auto">
+                <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-dark mb-4 drop-shadow-sm">
+                            Hub Activities
+                        </h2>
+                        <p className="font-body text-lg text-dark/70 max-w-xl">
+                            Stay updated with workshops, bootcamps, and community events happening across the TAS ecosystem.
+                        </p>
+                    </div>
+                    <a
+                        href="https://luma.com/Greenpillnaija?period=past"
+                        className="inline-flex items-center gap-2 rounded-full border-2 border-primary text-primary px-6 py-3 font-heading text-sm font-bold transition-all hover:bg-primary hover:text-white"
+                        style={{ whiteSpace: 'nowrap' }}
+                    >
+                        View Full Calendar <ExternalLink className="w-4 h-4" />
+                    </a>
+                </div>
+
+                {/* Horizontal Scrollable/Carousel Area */}
+                <div className="flex items-stretch overflow-x-auto gap-4 md:gap-6 pb-8 snap-x snap-mandatory hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+                    {activities.map((activity) => (
+                        <motion.div
+                            key={activity.id}
+                            whileHover={{ y: -5 }}
+                            className="w-[calc(100vw-2rem)] max-w-[320px] md:max-w-none md:w-[400px] snap-center flex-shrink-0 self-stretch h-auto bg-vibrant p-6 md:p-8 rounded-3xl border border-primary/20 shadow-sm hover:shadow-xl transition-shadow flex flex-col"
+                        >
+                            <div className="flex justify-between items-start mb-4 md:mb-6">
+                                <span className="inline-block px-3 py-1 rounded-full bg-white text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/10 shadow-sm">
+                                    {activity.type}
+                                </span>
+                                <div className="flex items-center gap-1.5 md:gap-2 text-dark/50 text-xs md:text-sm font-medium">
+                                    <Calendar className="w-4 h-4" />
+                                    {activity.date}
+                                </div>
+                            </div>
+
+                            <h3 className="font-heading text-xl md:text-2xl font-bold text-dark mb-2 md:mb-3">
+                                {activity.title}
+                            </h3>
+
+                            <p className="font-body text-sm md:text-base text-dark/70 mb-6 md:mb-8 flex-grow">
+                                {activity.description}
+                            </p>
+
+                            <div className="mt-auto pt-4 border-t border-dark/10 flex justify-between items-center">
+                                <span className="font-bold text-xs md:text-sm text-dark/60">{activity.location}</span>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                .hide-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+                .hide-scrollbar {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            `}} />
+        </section>
+    );
+}

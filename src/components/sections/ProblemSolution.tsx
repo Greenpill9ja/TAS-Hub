@@ -145,25 +145,24 @@ function SolutionAnimation() {
 
 export default function ProblemSolution() {
     return (
-        <section className="relative flex min-h-screen flex-col md:flex-row overflow-hidden">
+        <section className="relative flex min-h-screen flex-col md:flex-row overflow-hidden bg-vibrant">
             {/* Left: Problem */}
             <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
-                className="flex flex-1 flex-col items-center justify-center bg-dark/95 p-8 md:p-16 text-center text-white/50 grayscale transition-all hover:grayscale-0 relative overflow-hidden"
+                className="flex flex-1 flex-col items-center justify-center bg-primary/5 border-r border-dark/5 p-8 md:p-16 text-center text-dark/70 transition-all hover:bg-primary/10 relative overflow-hidden"
             >
-                <div className="absolute inset-0 bg-black/40 z-0"></div>
                 <div className="z-10 w-full max-w-lg">
-                    <div className="mb-8 inline-block rounded-full bg-white/10 px-6 py-2 text-xs font-black uppercase tracking-[0.4em] text-white/40 hover:text-white border border-white/10 hover:bg-red-500/50">
+                    <div className="mb-8 inline-block rounded-full bg-red-500/10 px-6 py-2 text-xs font-black uppercase tracking-[0.4em] text-red-600 border border-red-500/20 hover:bg-red-500 hover:text-white transition-colors">
                         The Challenge
                     </div>
                     <ProblemAnimation />
-                    <h2 className="mb-6 font-heading text-4xl font-bold tracking-tight text-white/70">
+                    <h2 className="mb-6 font-heading text-5xl font-bold tracking-tight text-dark">
                         The Energy Gap
                     </h2>
-                    <p className="font-body text-lg leading-relaxed md:text-xl">
+                    <p className="font-body text-xl md:text-2xl font-medium leading-relaxed max-w-sm mx-auto">
                         Highlighting the Energy Gap in Nigeria: Blackouts, high data costs, and stifled innovation.
                     </p>
                 </div>
@@ -178,17 +177,17 @@ export default function ProblemSolution() {
                 className="flex flex-1 flex-col items-center justify-center bg-vibrant p-8 md:p-16 text-center text-dark relative overflow-hidden"
             >
                 {/* Subtle glow effect behind text */}
-                <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/20 blur-[100px]"></div>
+                <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[100px]"></div>
 
                 <div className="z-10 w-full max-w-lg">
-                    <div className="mb-8 inline-block rounded-full bg-primary/10 px-6 py-2 text-xs font-black uppercase tracking-[0.4em] text-primary/60 border border-primary/20 hover:text-white hover:bg-primary/80">
+                    <div className="mb-8 inline-block rounded-full bg-primary/10 px-6 py-2 text-xs font-black uppercase tracking-[0.4em] text-primary border border-primary/20 hover:text-white hover:bg-primary transition-colors">
                         The Solution
                     </div>
                     <SolutionAnimation />
-                    <h2 className="mb-6 font-heading text-4xl font-bold tracking-tight text-primary">
+                    <h2 className="mb-6 font-heading text-5xl font-bold tracking-tight text-primary">
                         The TAS Solution
                     </h2>
-                    <p className="font-body text-lg leading-relaxed md:text-xl font-medium">
+                    <p className="font-body text-xl md:text-2xl leading-relaxed font-medium max-w-sm mx-auto">
                         Solar containers as <span className="text-accent font-bold">Public Goods</span> that turn sunlight into digital equity.
                     </p>
                 </div>
