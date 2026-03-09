@@ -4,7 +4,7 @@ import { Twitter, Github } from "lucide-react";
 
 export default function Footer() {
     const team = [
-        { name: "Anthony Amio", role: "Head of Operations", image: "/amio.png" },
+        { name: "Anthony Amio", role: "Head of Operations", image: "/amio.jpg" },
         { name: "Mmeri Anosike", role: "Lead Solar Engineer", image: "/nmeri.png" },
         { name: "Nansel Rimsah", role: "Lead Engineer & Designer", image: "/nansel.png" },
         { name: "Afolabi Aiyeloja", role: "Community Lead", image: "/afo.png" },
@@ -27,7 +27,7 @@ export default function Footer() {
                         <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
                             <div className="h-28 w-28 shrink-0 rounded-full border-4 border-primary/30 p-1 bg-white/5 overflow-hidden">
                                 <div className="h-full w-full rounded-full bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center overflow-hidden">
-                                    <img src="/Izzy.png" alt="Izzy" className="w-full h-full object-cover" />
+                                    <img src="/izzy.jpg" alt="Izzy" className="w-full h-full object-cover" />
                                 </div>
                             </div>
                             <div className="flex flex-col flex-1 text-white">

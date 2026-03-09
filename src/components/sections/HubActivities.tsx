@@ -10,8 +10,8 @@ export default function HubActivities() {
         {
             id: 1,
             title: "TAS Hub Awka Launch",
-            date: "March 17, 2026",
-            location: "TAS Hub Awka",
+            date: "March 14, 2026",
+            location: "TAS Hub Unizik, Coke Center",
             type: "Launch",
             description: "The official commisioning of the the TAS Hub in Univerty of Nigeria."
         },

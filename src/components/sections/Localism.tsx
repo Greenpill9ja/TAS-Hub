@@ -13,7 +13,7 @@ export default function Localism() {
         {
             id: "awka",
             name: "TAS Hub Awka",
-            image: "/the-stack.png",
+            image: "/akwahub.png",
             status: "Active",
             statusColor: "text-emerald-600 bg-white/90 border-emerald-500/20",
             dotColor: "bg-emerald-500",
@@ -28,7 +28,7 @@ export default function Localism() {
         {
             id: "enugu",
             name: "TAS Hub Enugu",
-            image: "/tas-hub.png",
+            image: "/enuguhub.png",
             status: "Coming Soon",
             statusColor: "text-white/70 bg-dark/80 border-white/10",
             dotColor: "hidden",
