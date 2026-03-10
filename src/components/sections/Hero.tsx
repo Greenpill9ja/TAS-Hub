@@ -279,7 +279,7 @@ export default function Hero() {
                                 {/* First Set */}
                                 {[
                                     { name: "Greenpill Nigeria", logo: "/greenpillnaija.png" },
-                                    { name: "Greenpill Dev Guild", logo: "/dev-guild.png" },
+                                    { name: "Greenpill Dev Guild", logo: "/Dev-Guild.png" },
                                     { name: "Localism", logo: "/localism.png" },
                                     { name: "M3tering Protocol", logo: "/m3tering protocol.png" },
                                     { name: "Switch Electric", logo: "/switch.png" }
@@ -294,7 +294,7 @@ export default function Hero() {
                                 {/* Second Set for seamless loop */}
                                 {[
                                     { name: "Greenpill Nigeria", logo: "/greenpillnaija.png" },
-                                    { name: "Greenpill Dev Guild", logo: "/dev-guild.png" },
+                                    { name: "Greenpill Dev Guild", logo: "/Dev-Guild.png" },
                                     { name: "Localism", logo: "/localism.png" },
                                     { name: "M3tering Protocol", logo: "/m3tering protocol.png" },
                                     { name: "Switch Electric", logo: "/switch.png" }

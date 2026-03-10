@@ -5,7 +5,7 @@ import { Twitter, Github } from "lucide-react";
 export default function Footer() {
     const team = [
         { name: "Anthony Amio", role: "Head of Operations", image: "/amio.jpg" },
-        { name: "Mmeri Anosike", role: "Lead Solar Engineer", image: "/nmeri.png" },
+        { name: "Mmeri Anosike", role: "Lead Solar Engineer", image: "/Nmeri.png" },
         { name: "Nansel Rimsah", role: "Lead Engineer & Designer", image: "/nansel.png" },
         { name: "Afolabi Aiyeloja", role: "Community Lead", image: "/afo.png" },
     ];

@@ -13,7 +13,7 @@ export default function Localism() {
         {
             id: "awka",
             name: "TAS Hub Awka",
-            image: "/akwahub.png",
+            image: "/Akwahub.png",
             status: "Active",
             statusColor: "text-emerald-600 bg-white/90 border-emerald-500/20",
             dotColor: "bg-emerald-500",
