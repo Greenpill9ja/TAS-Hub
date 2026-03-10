@@ -50,7 +50,7 @@ export default function HubActivities() {
                             Hub Activities
                         </h2>
                         <p className="font-body text-lg text-dark/70 max-w-xl">
-                            Stay updated with workshops, bootcamps, and community events happening across the TAS ecosystem.
+                            Stay updated and subscribe to our calendar for workshops, bootcamps, and community events happening across the TAS ecosystem.
                         </p>
                     </div>
                     <a

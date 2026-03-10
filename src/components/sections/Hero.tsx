@@ -184,7 +184,7 @@ export default function Hero() {
 
                                 {/* TAS */}
                                 <img
-                                    src="/tas-hub.png"
+                                    src="/tashub.png"
                                     alt="TAS Hub"
                                     className="absolute bottom-0 right-0 h-[110%] object-contain opacity-90 brightness-110 [mask-image:radial-gradient(circle_at_center,black_40%,transparent_90%)]"
                                 />
@@ -280,7 +280,7 @@ export default function Hero() {
                                 {[
                                     { name: "Greenpill Nigeria", logo: "/greenpillnaija.png" },
                                     { name: "Greenpill Dev Guild", logo: "/Dev-Guild.png" },
-                                    { name: "Localism", logo: "/localism.png" },
+                                    { name: "Localism", logo: "/Localism.png" },
                                     { name: "M3tering Protocol", logo: "/m3tering protocol.png" },
                                     { name: "Switch Electric", logo: "/switch.png" }
                                 ].map((partner, idx) => (
@@ -295,7 +295,7 @@ export default function Hero() {
                                 {[
                                     { name: "Greenpill Nigeria", logo: "/greenpillnaija.png" },
                                     { name: "Greenpill Dev Guild", logo: "/Dev-Guild.png" },
-                                    { name: "Localism", logo: "/localism.png" },
+                                    { name: "Localism", logo: "/Localism.png" },
                                     { name: "M3tering Protocol", logo: "/m3tering protocol.png" },
                                     { name: "Switch Electric", logo: "/switch.png" }
                                 ].map((partner, idx) => (

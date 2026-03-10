@@ -35,7 +35,7 @@ export default function Localism() {
             border: "border-primary/20",
             overlay: "bg-primary/20",
             textColor: "text-primary",
-            summary: "This hub will provides 24/7 internet and power to students and local developers.",
+            summary: "This hub will provide 24/7 internet and power to students and local developers.",
             description: "TAS Hub Enugu is currently in the strategic planning and funding phase. It will be designed to handle a larger student capacity and will include dedicated research facilities for decentralized hardware experiments.",
             capacity: "150+ Planned Capacity",
             lumaLink: "https://luma.com/Greenpillnaija"
