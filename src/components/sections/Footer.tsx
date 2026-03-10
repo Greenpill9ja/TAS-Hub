@@ -1,13 +1,44 @@
 "use client";
 
-import { Twitter, Github } from "lucide-react";
+import { Twitter, Github, Linkedin } from "lucide-react";
 
 export default function Footer() {
     const team = [
-        { name: "Anthony Amio", role: "Head of Operations", image: "/amio.jpg" },
-        { name: "Mmeri Anosike", role: "Lead Solar Engineer", image: "/Nmeri.png" },
-        { name: "Nansel Rimsah", role: "Lead Engineer & Designer", image: "/nansel.png" },
-        { name: "Afolabi Aiyeloja", role: "Community Lead", image: "/afo.png" },
+        {
+            name: "Anthony Amio",
+            role: "Head of Operations",
+            image: "/amio.jpg",
+            twitter: "https://x.com/techandsunhub",
+            linkedin: "https://linkedin.com/in/anthonyamio"
+        },
+        {
+            name: "Mmeri Anosike",
+            role: "Lead Solar Engineer",
+            image: "/Nmeri.png",
+            twitter: "https://x.com/techandsunhub",
+            linkedin: "https://linkedin.com/in/mmerianosike"
+        },
+        {
+            name: "Nansel Rim",
+            role: "Lead Engineer & Designer",
+            image: "/nansel.jpg",
+            twitter: "https://x.com/nanselrim",
+            linkedin: "https://linkedin.com/in/nanselrimsah"
+        },
+        {
+            name: "Afolabi Aiyeloja",
+            role: "Community Lead",
+            image: "/afo.jpg",
+            twitter: "https://x.com/techandsunhub",
+            linkedin: "https://linkedin.com/in/afolabiaiyeloja"
+        },
+        {
+            name: "Jonruth",
+            role: "Operations Lead",
+            image: "/jon.jpg",
+            twitter: "https://x.com/techandsunhub",
+            linkedin: "https://linkedin.com/in/jonruth"
+        },
     ];
 
     return (
@@ -41,9 +72,9 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16">
+                    <div className="flex flex-wrap justify-center gap-8 md:gap-12 max-w-6xl mx-auto">
                         {team.map((member, i) => (
-                            <div key={i} className="flex flex-col items-center group cursor-pointer">
+                            <div key={i} className="flex flex-col items-center group cursor-pointer w-[calc(50%-1rem)] md:w-[calc(33.33%-2rem)] lg:w-[calc(20%-2.5rem)] min-w-[150px]">
                                 {/* Avatar with Glass Border */}
                                 <div className="h-32 w-32 md:h-40 md:w-40 rounded-full border border-primary/40 bg-white/20 p-2 shadow-[0_0_30px_-5px_var(--color-primary)] transition-transform group-hover:-translate-y-2 backdrop-blur-sm mb-6 flex items-center justify-center overflow-hidden">
                                     {member.image ? (
@@ -64,6 +95,27 @@ export default function Footer() {
                                 </div>
                                 <h3 className="font-heading text-xl font-bold text-dark">{member.name}</h3>
                                 <p className="font-body md:text-sm text-xs mt-1 text-dark/60 font-medium uppercase tracking-wider">{member.role}</p>
+
+                                <div className="flex items-center gap-3 mt-4 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                    <a
+                                        href={member.twitter}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-1.5 rounded-full bg-dark/5 hover:bg-primary/20 text-dark/40 hover:text-primary transition-all duration-300"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <Twitter className="h-4 w-4" />
+                                    </a>
+                                    <a
+                                        href={member.linkedin}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-1.5 rounded-full bg-dark/5 hover:bg-primary/20 text-dark/40 hover:text-primary transition-all duration-300"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <Linkedin className="h-4 w-4" />
+                                    </a>
+                                </div>
                             </div>
                         ))}
                     </div>
