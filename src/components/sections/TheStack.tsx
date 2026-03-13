@@ -8,7 +8,7 @@ import { Battery, X, Plus, ArrowRight } from "lucide-react";
 const parts = [
     {
         id: 1,
-        name: "6x 580W Mono-crystalline Panels",
+        name: "7x 600W Mono-crystalline Panels",
         icon: "/Solar Panel.png",
         color: "bg-secondary text-dark",
         description: "High-efficiency Tier 1 solar panels providing consistent green energy for the entire installation. Designed for durability in diverse Nigerian weather conditions.",

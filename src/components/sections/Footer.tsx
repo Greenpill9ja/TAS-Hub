@@ -8,35 +8,35 @@ export default function Footer() {
             name: "Anthony Amio",
             role: "Head of Operations",
             image: "/amio.jpg",
-            twitter: "https://x.com/techandsunhub",
+            twitter: "https://x.com/amioantho",
             linkedin: "https://linkedin.com/in/anthonyamio"
         },
         {
             name: "Mmeri Anosike",
             role: "Lead Solar Engineer",
             image: "/Nmeri.png",
-            twitter: "https://x.com/techandsunhub",
-            linkedin: "https://linkedin.com/in/mmerianosike"
+            twitter: "https://x.com/BuildwithMc",
+            linkedin: "https://linkedin.com/in/buildwithmc"
         },
         {
             name: "Nansel Rim",
             role: "Lead Engineer & Designer",
             image: "/nansel.jpg",
             twitter: "https://x.com/nanselrim",
-            linkedin: "https://linkedin.com/in/nanselrimsah"
+            linkedin: "https://linkedin.com/in/nansel"
         },
         {
             name: "Afolabi Aiyeloja",
             role: "Community Lead",
             image: "/afo.jpg",
-            twitter: "https://x.com/techandsunhub",
-            linkedin: "https://linkedin.com/in/afolabiaiyeloja"
+            twitter: "https://x.com/time_is_oba",
+            linkedin: "https://linkedin.com/in/afolabi-aiyeloja"
         },
         {
             name: "Jonruth",
             role: "Operations Lead",
             image: "/jon.jpg",
-            twitter: "https://x.com/techandsunhub",
+            twitter: "https://x.com/jhruth",
             linkedin: "https://linkedin.com/in/jonruth"
         },
     ];

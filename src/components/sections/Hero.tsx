@@ -127,19 +127,12 @@ export default function Hero() {
                         className="max-w-xl pb-20 md:pb-0 lg:-translate-y-12"
                     >
                         {/* Social Proof Badge */}
-                        <div className="mb-6 flex items-center gap-3 rounded-full bg-white/40 border border-white/60 p-1 pr-3 md:p-1.5 md:pr-4 backdrop-blur-sm w-fit scale-90 md:scale-100 origin-left">
-                            <div className="flex -space-x-2">
-                                {[1, 2, 3].map((i) => (
-                                    <div key={i} className="h-6 w-6 md:h-8 md:w-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                                        <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" className="h-full w-full object-cover" />
-                                    </div>
-                                ))}
-                            </div>
+                        <div className="mb-6 flex items-center gap-3 rounded-full bg-white/40 border border-white/60 p-2 px-4 backdrop-blur-sm w-fit scale-90 md:scale-100 origin-left">
                             <div className="flex flex-col">
-                                <div className="flex text-secondary">
-                                    {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="h-2 w-2 md:h-3 md:w-3 fill-current" />)}
+                                <div className="flex text-secondary mb-0.5">
+                                    {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="h-2.5 w-2.5 md:h-3.5 md:w-3.5 fill-current" />)}
                                 </div>
-                                <span className="text-[8px] md:text-[10px] font-bold text-dark/70 uppercase tracking-tighter text-nowrap">1k+ Impacted Students</span>
+                                <span className="text-[10px] md:text-xs font-bold text-dark/80 uppercase tracking-tight text-nowrap">50+ Impacted Students</span>
                             </div>
                         </div>
 
