@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TAS Hub
+
+This repo is a Next.js site for TAS Hub. Phase 1 is a lean Codex-first workflow:
+shared repo instructions, local validation tiers, lightweight planning artifacts,
+and a smoke test for the live site shell.
+
+## Stack
+
+- Next.js App Router
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+
+## Runtime
+
+This repo uses `Bun 1.3.10` for package management and script execution, and
+targets `Node 22.22.1` for the app runtime.
+
+- `mise` users: both versions are defined in [mise.toml](/Users/afo/Code/greenpill/TAS-Hub/mise.toml)
+- `nvm` users: the same version is mirrored in [.nvmrc](/Users/afo/Code/greenpill/TAS-Hub/.nvmrc)
+- `Bun` is also pinned in [package.json](/Users/afo/Code/greenpill/TAS-Hub/package.json) via `packageManager`
+
+If Bun or Node is unavailable through `mise`, run:
+
+```bash
+mise install
+```
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bunx playwright install chromium
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Start the dev server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Codex Workflow
 
-To learn more about Next.js, take a look at the following resources:
+- Repo contract: [AGENTS.md](/Users/afo/Code/greenpill/TAS-Hub/AGENTS.md)
+- Codex config: [.codex/config.toml](/Users/afo/Code/greenpill/TAS-Hub/.codex/config.toml)
+- Planning OS: [.plans/README.md](/Users/afo/Code/greenpill/TAS-Hub/.plans/README.md)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+TAS intentionally uses a smaller workflow than `coop` or `green-goods`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Codex is the only repo-managed agent in phase 1
+- `.plans/` is lightweight and human-readable
+- There are no queue scripts, lane files, `CLAUDE.md`, `.claude/`, CI workflows,
+  or scheduled automations yet
 
-## Deploy on Vercel
+## Validation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Lint: `bun run lint`
+- Typecheck: `bun run typecheck`
+- Quick static gate: `bun run validate:quick`
+- Production build: `bun run build`
+- Full local gate: `bun run check`
+- Browser smoke: `bun run test:smoke`
+- Full local release gate: `bun run validate:smoke`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Repo Notes
+
+- The runtime is pinned with [mise.toml](/Users/afo/Code/greenpill/TAS-Hub/mise.toml) and [.nvmrc](/Users/afo/Code/greenpill/TAS-Hub/.nvmrc).
+- `package.json` defines the local validation ladder from static checks through
+  browser smoke.
+- The website source remains in the existing App Router structure under [src/app](/Users/afo/Code/greenpill/TAS-Hub/src/app) and [src/components](/Users/afo/Code/greenpill/TAS-Hub/src/components).
+- Smoke tests use structural hooks only: section ids, `data-testid`, and real
+  anchor paths rather than copy-dependent selectors.
+
+## Planning OS
+
+- Active feature work lives in `.plans/features/<feature-slug>/`
+- Point-in-time audits live in `.plans/audits/YYYY-MM-DD-<slug>.md`
+- Templates live in `.plans/templates/feature/`
+
+## Explicit Deferrals
+
+- No `CLAUDE.md` or `.claude/` in phase 1
+- No GitHub Actions or release CI in phase 1
+- No scheduled Codex automations in phase 1
+- No queue scripts, lane files, or QA handoff choreography in phase 1

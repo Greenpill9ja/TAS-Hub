@@ -1,37 +1,41 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, Star, ArrowUpRight, X, Twitter, Github } from "lucide-react";
-import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { Twitter, Github } from "lucide-react";
+import { useRef } from "react";
 
 const floatingIconCards = [
     {
         id: "Nodes",
-        title: "PG Staking",
+        title: "Ethereum Staking",
         icon: "/Node.png", // Using Node.png as requested for custom icons
         position: { top: "10%", right: "350px" },
         delay: 0,
+        floatDuration: 3.2,
     },
     {
         id: "Starlink",
-        title: "Fast Internet",
+        title: "Starlink Internet",
         icon: "/Internet (Starlink) green.png",
         position: { top: "5%", right: "50px" },
         delay: 0.5,
+        floatDuration: 4.1,
     },
     {
         id: "solar",
-        title: "Solar Panel",
+        title: "Solar Energy",
         icon: "/Solar Panel.png",
         position: { top: "45%", right: "350px" },
         delay: 1,
+        floatDuration: 3.6,
     },
     {
         id: "power",
-        title: "Power Storage",
+        title: "Energy Storage",
         icon: "/Battery.png",
         position: { top: "47%", right: "30px" },
         delay: 1.5,
+        floatDuration: 4.4,
     },
 ];
 
@@ -48,19 +52,22 @@ function getTurbinePath(id: string) {
 }
 
 export default function Hero() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const turbineRef = useRef<HTMLDivElement>(null);
 
     return (
-        <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#A5D5F5] to-[#E5F1FF]">
+        <section
+            id="hero"
+            data-testid="hero-section"
+            className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#A5D5F5] to-[#E5F1FF] scroll-mt-24"
+        >
             {/* Navigation */}
-            <header className="absolute top-0 left-0 right-0 z-50 flex w-full items-center justify-between p-6 md:p-10">
-                <div className="flex items-center gap-2">
-                    <img src="/Tas Logo-green.png" alt="TAS Logo" className="h-10 w-10 rounded-full" />
-                </div>
+            <header className="absolute top-0 left-0 right-0 z-50 w-full">
+                <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-6 md:py-10">
+                    <div className="flex items-center gap-2">
+                        <img src="/Tas Logo-green.png" alt="TAS Logo" className="h-10 w-10 rounded-full" />
+                    </div>
 
-                <div className="flex items-center gap-6">
-                    <div className="hidden md:flex items-center gap-6">
+                    <div className="flex items-center gap-6">
                         <a href="https://x.com/techandsunhub" target="_blank" rel="noopener noreferrer" className="text-dark/60 hover:text-primary transition-colors">
                             <Twitter className="h-7 w-7" />
                         </a>
@@ -68,40 +75,8 @@ export default function Hero() {
                             <Github className="h-7 w-7" />
                         </a>
                     </div>
-
-                    <button
-                        className="md:hidden p-2 text-dark"
-                        onClick={() => setMobileMenuOpen(true)}
-                    >
-                        <Menu className="h-6 w-6" />
-                    </button>
                 </div>
             </header>
-
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white/95 backdrop-blur-md"
-                    >
-                        <button
-                            className="absolute top-6 right-6 text-dark p-2"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            <X className="h-8 w-8" />
-                        </button>
-                        <nav className="flex flex-col items-center gap-8 text-2xl font-heading font-bold text-primary">
-                            <a href="#" className="hover:text-accent" onClick={() => setMobileMenuOpen(false)}>About TAS</a>
-                            <a href="#" className="hover:text-accent" onClick={() => setMobileMenuOpen(false)}>Impact Tracker</a>
-                            <a href="#" className="hover:text-accent" onClick={() => setMobileMenuOpen(false)}>Roadmap</a>
-                            <a href="#" className="mt-4 rounded-full bg-secondary px-8 py-4 text-sm font-bold text-dark" onClick={() => setMobileMenuOpen(false)}>Get Started</a>
-                        </nav>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
             {/* Sun Illustration */}
             <div className="absolute top-10 left-1/2 -translate-x-1/2 z-0">
@@ -116,7 +91,7 @@ export default function Hero() {
             </div>
 
             {/* Main Content Layout */}
-            <div className="container relative z-10 mx-auto flex min-h-screen items-center px-6 pt-20">
+            <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-4 pt-20">
                 <div className="grid w-full grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
 
                     {/* Left Column: Copy */}
@@ -126,40 +101,18 @@ export default function Hero() {
                         transition={{ duration: 0.8 }}
                         className="max-w-xl pb-20 md:pb-0 lg:-translate-y-12"
                     >
-                        {/* Social Proof Badge */}
-                        <div className="mb-6 flex items-center gap-3 rounded-full bg-white/40 border border-white/60 p-2 px-4 backdrop-blur-sm w-fit scale-90 md:scale-100 origin-left">
-                            <div className="flex flex-col">
-                                <div className="flex text-secondary mb-0.5">
-                                    {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="h-2.5 w-2.5 md:h-3.5 md:w-3.5 fill-current" />)}
-                                </div>
-                                <span className="text-[10px] md:text-xs font-bold text-dark/80 uppercase tracking-tight text-nowrap">50+ Impacted Students</span>
-                            </div>
-                        </div>
-
-                        <h1 className="font-heading text-4xl font-black leading-[1.1] text-dark md:text-6xl lg:text-6xl">
-                            Tech And Sun <br />
-                            <span className="text-primary">Powering</span> <br />
-                            Next Generation
+                        <h1 className="font-heading text-5xl font-black leading-[1.05] text-dark md:text-5xl lg:text-[3.75rem]">
+                            Tech and Sun <br />
+                            <span className="text-primary">Empowering</span> <br />
+                            Builders and Communities
                         </h1>
 
-                        <p className="mt-4 md:mt-6 max-w-lg font-body text-sm text-dark/80 md:text-lg lg:text-xl font-medium leading-relaxed">
-                            TAS is bridging the digital divide in Nigeria
-                            by Powering Nigeria’s Next Generation of
-                            Builders and Innovators with
-                            24/7 Electricity and Internet.
+                        <p className="mt-4 md:mt-6 max-w-lg font-body text-base text-dark/80 md:text-base lg:text-lg font-medium leading-relaxed">
+                            TAS builds dependable solar-powered hubs that give students,
+                            builders, and local communities in Nigeria steady access to
+                            electricity and internet providing a space to learn, build,
+                            and grow together.
                         </p>
-
-                        <div className="mt-8 md:mt-10">
-                            <a
-                                href="https://chat.whatsapp.com/DDcSTISh6FfLJ2sTBkSolJ"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-full bg-secondary px-8 py-3 md:px-10 md:py-4 font-heading text-base md:text-lg font-bold text-dark shadow-lg shadow-secondary/20 transition-all hover:scale-105 hover:shadow-xl"
-                            >
-                                Get Started
-                                <ArrowUpRight className="h-4 w-4 md:h-5 md:w-5" />
-                            </a>
-                        </div>
 
                         {/* <div className="mt-12 flex flex-col gap-1">
                             <span className="text-4xl font-black text-dark tracking-tighter">30<sup className="text-xl">+</sup></span>
@@ -199,19 +152,19 @@ export default function Hero() {
                                     duration: 0.6,
                                     delay: card.delay,
                                     y: {
-                                        duration: 3 + Math.random() * 2,
+                                        duration: card.floatDuration,
                                         repeat: Infinity,
                                         ease: "easeInOut"
                                     }
                                 }}
                                 className="absolute z-20 flex flex-col items-center gap-2"
                             >
-                                <div className="group relative overflow-hidden rounded-2xl border border-white/80 bg-vibrant/40 p-1.5 backdrop-blur-md transition-all hover:scale-110 hover:bg-white/60 shadow-xl">
-                                    <div className="h-24 w-32 overflow-hidden rounded-xl bg-white/50">
-                                        <img src={card.icon} alt={card.title} className="h-full w-full object-contain p-2" />
+                                <div className="group relative overflow-hidden rounded-2xl border border-white/80 bg-vibrant/40 p-1 backdrop-blur-md transition-all hover:scale-110 hover:bg-white/60 shadow-xl">
+                                    <div className="h-16 w-24 overflow-hidden rounded-xl bg-white/50">
+                                        <img src={card.icon} alt={card.title} className="h-full w-full object-contain p-1.5" />
                                     </div>
-                                    <div className="py-2 text-center">
-                                        <span className="text-xs font-black uppercase text-dark/70 tracking-tight">{card.title}</span>
+                                    <div className="py-1 text-center">
+                                        <span className="text-[8px] font-black uppercase text-dark/70 tracking-tight whitespace-nowrap">{card.title}</span>
                                     </div>
                                 </div>
 
@@ -252,14 +205,14 @@ export default function Hero() {
 
             {/* Partners Section - Looping Animation */}
             <div className="absolute bottom-0 left-0 right-0 z-20">
-                <div className="mx-auto max-w-6xl rounded-t-[40px] bg-white px-8 py-8 shadow-[0_-20px_50px_rgba(0,0,0,0.05)] md:py-10">
+                <div className="mx-auto max-w-6xl rounded-t-[40px] bg-white/60 px-8 py-8 shadow-[0_-20px_50px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-colors duration-500 hover:bg-white md:py-10">
                     <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-                        <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] text-dark/40 whitespace-nowrap">
+                        <div className="flex items-center gap-4 text-xs md:text-sm font-black uppercase tracking-[0.3em] text-dark/70 whitespace-nowrap">
                             <div className="h-px w-6 bg-dark/80" />
                             Strategic Partners
                         </div>
 
-                        <div className="relative flex flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                        <div className="relative flex flex-1 overflow-hidden">
                             <motion.div
                                 animate={{ x: ["0%", "-50%"] }}
                                 transition={{
@@ -271,6 +224,7 @@ export default function Hero() {
                             >
                                 {/* First Set */}
                                 {[
+                                    { name: "Greenpill Network", logo: "/greenpill-network.webp" },
                                     { name: "Greenpill Nigeria", logo: "/greenpillnaija.png" },
                                     { name: "Greenpill Dev Guild", logo: "/Dev-Guild.png" },
                                     { name: "Localism", logo: "/Localism.png" },
@@ -278,25 +232,26 @@ export default function Hero() {
                                     { name: "Switch Electric", logo: "/switch.png" }
                                 ].map((partner, idx) => (
                                     <div key={`p1-${idx}`} className="group flex flex-nowrap items-center gap-4 transition-all">
-                                        <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-dark/5 bg-gray-50 p-1 opacity-60 transition-opacity group-hover:opacity-100">
+                                        <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-dark/10 bg-gray-50 p-1 shadow-sm">
                                             <img src={partner.logo} alt={partner.name} className="h-full w-full object-contain" />
                                         </div>
-                                        <span className="font-heading text-xl font-extrabold tracking-tight text-dark/30 transition-colors group-hover:text-dark whitespace-nowrap">{partner.name}</span>
+                                        <span className="font-heading text-xl font-extrabold tracking-tight text-dark/70 transition-colors group-hover:text-dark whitespace-nowrap">{partner.name}</span>
                                     </div>
                                 ))}
                                 {/* Second Set for seamless loop */}
                                 {[
+                                    { name: "Greenpill Network", logo: "/greenpill-network.webp" },
                                     { name: "Greenpill Nigeria", logo: "/greenpillnaija.png" },
                                     { name: "Greenpill Dev Guild", logo: "/Dev-Guild.png" },
                                     { name: "Localism", logo: "/Localism.png" },
                                     { name: "M3tering Protocol", logo: "/m3tering protocol.png" },
                                     { name: "Switch Electric", logo: "/switch.png" }
                                 ].map((partner, idx) => (
-                                    <div key={`p1-${idx}`} className="group flex flex-nowrap items-center gap-4 transition-all">
-                                        <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-dark/5 bg-gray-50 p-1 opacity-60 transition-opacity group-hover:opacity-100">
+                                    <div key={`p2-${idx}`} className="group flex flex-nowrap items-center gap-4 transition-all">
+                                        <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-dark/10 bg-gray-50 p-1 shadow-sm">
                                             <img src={partner.logo} alt={partner.name} className="h-full w-full object-contain" />
                                         </div>
-                                        <span className="font-heading text-xl font-extrabold tracking-tight text-dark/30 transition-colors group-hover:text-dark whitespace-nowrap">{partner.name}</span>
+                                        <span className="font-heading text-xl font-extrabold tracking-tight text-dark/70 transition-colors group-hover:text-dark whitespace-nowrap">{partner.name}</span>
                                     </div>
                                 ))}
                             </motion.div>

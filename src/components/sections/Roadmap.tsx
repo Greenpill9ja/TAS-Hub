@@ -3,99 +3,112 @@
 import { motion } from "framer-motion";
 
 const milestones = [
-    { id: 1, date: "Q4 2025", title: "Secure Funding & University Agreements.", color: "bg-primary", glow: "shadow-primary", textDark: true },
-    { id: 2, date: "Q1 2026", title: "Migrate Owerri Station & Procure Hardware.", color: "bg-accent", glow: "shadow-accent", textDark: false },
-    { id: 3, date: "Q2 2026", title: "Complete Buildout & System Testing.", color: "bg-secondary", glow: "shadow-secondary", textDark: true },
-    { id: 4, date: "Launch", title: "Official Opening of TAS Enugu & Anambra.", color: "bg-white", glow: "shadow-white", textDark: true },
+    {
+        id: 1,
+        quarter: "Q1 2026",
+        title: "Launch the first TAS hub at UNIZIK with dependable power, internet, and a home base for builders",
+        badge: "border-primary/20 bg-primary/10 text-primary",
+        dot: "bg-primary"
+    },
+    {
+        id: 2,
+        quarter: "Q2 2026",
+        title: "Bring the TAS model to Enugu and secure funding to grow from a couple hubs to many",
+        badge: "border-accent/20 bg-accent/10 text-accent",
+        dot: "bg-accent"
+    },
+    {
+        id: 3,
+        quarter: "Q3 2026",
+        title: "Break ground on new hubs in Lagos and Abuja, extending dependable infrastructure across Nigeria",
+        badge: "border-secondary/30 bg-secondary/40 text-dark",
+        dot: "bg-secondary"
+    },
+    {
+        id: 4,
+        quarter: "Q4 2026",
+        title: "Deepen partnerships with local energy providers and businesses to strengthen long-term foundations",
+        badge: "border-dark/10 bg-dark/5 text-dark",
+        dot: "bg-dark"
+    },
 ];
-
-function MilestoneBeam({ item, index }: { item: typeof milestones[0], index: number }) {
-    return (
-        <div className="relative flex flex-col items-center justify-end h-[400px] w-full max-w-[200px] flex-shrink-0 group">
-            {/* Information Context (Above Light) */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="absolute top-0 w-full text-center px-2 flex flex-col items-center z-20"
-            >
-                <div className={`rounded-xl p-4 shadow-xl backdrop-blur-md border border-white/10 ${item.color} mb-4 transform transition-transform group-hover:-translate-y-2`}>
-                    <p className={`font-body text-sm font-bold leading-tight ${item.textDark ? 'text-dark' : 'text-white'}`}>
-                        {item.title}
-                    </p>
-                </div>
-            </motion.div>
-
-            {/* Downward Light Beam (Shining Upward conceptually) */}
-            <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                whileInView={{ opacity: 1, height: "160px" }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
-                className={`w-[4px] relative z-10`}
-                style={{
-                    background: `linear-gradient(to top, var(--color-${item.color.replace('bg-', '')}, white), transparent)`
-                }}
-            >
-                {/* Glow aura */}
-                <div className={`absolute inset-0 w-full h-full blur-[10px] bg-inherit opacity-70`}></div>
-            </motion.div>
-
-            {/* Quarter Point Circle (Bottom) */}
-            <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 200, delay: index * 0.2 + 0.1 }}
-                className={`relative z-20 mt-2 flex h-16 w-20 items-center justify-center rounded-[2rem] border-4 border-dark ${item.color} ${item.glow} shadow-[0_0_30px_rgba(255,255,255,0.2)]`}
-            >
-                <span className={`font-heading text-xs font-black uppercase tracking-wider ${item.textDark ? 'text-dark' : 'text-white'}`}>
-                    {item.date}
-                </span>
-            </motion.div>
-        </div>
-    );
-}
 
 export default function Roadmap() {
     return (
-        <section className="relative bg-dark py-24 md:py-32 px-4 shadow-2xl overflow-hidden border-b border-white/5">
-            {/* Ambient Background Elements */}
-            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <section
+            id="roadmap"
+            className="relative overflow-hidden bg-vibrant px-4 py-24 scroll-mt-24 md:py-28"
+        >
+            <div className="pointer-events-none absolute left-[-8%] top-20 h-[360px] w-[360px] rounded-full bg-primary/8 blur-[110px]" />
+            <div className="pointer-events-none absolute bottom-0 right-[-6%] h-[280px] w-[280px] rounded-full bg-secondary/20 blur-[90px]" />
 
-            <div className="mb-20 text-center relative z-10 w-full max-w-4xl mx-auto">
-                <h2 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-sm">
-                    Roadmap
-                </h2>
-                <p className="font-body text-lg text-white/50">
-                    The path to launching our first interconnected green energy hubs in Nigeria.
-                </p>
-            </div>
+            <div className="relative mx-auto max-w-6xl">
+                <div className="mx-auto mb-16 max-w-3xl text-center">
+                    <h2 className="mb-5 font-heading text-5xl font-bold text-dark md:text-7xl">
+                        2026 Roadmap
+                    </h2>
+                    <p className="font-body text-lg text-dark/65">
+                        A grounded path from the live Awka hub toward a broader network of
+                        university-based hubs across Nigeria.
+                    </p>
+                </div>
 
-            {/* Horizontal timeline container */}
-            <div className="relative w-full max-w-6xl mx-auto overflow-x-auto pb-10 hide-scrollbar">
+                <div
+                    data-testid="roadmap-desktop"
+                    className="relative hidden md:block"
+                >
+                    <div className="absolute left-[8%] right-[8%] top-8 h-px bg-dark/10" />
+                    <div className="grid grid-cols-4 gap-6">
+                        {milestones.map((item, index) => (
+                            <motion.div
+                                key={item.id}
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.45, delay: index * 0.08 }}
+                                className="relative pt-16"
+                            >
+                                <div className={`absolute left-1/2 top-[26px] h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white shadow-sm ${item.dot}`} />
+                                <div className="h-full rounded-[2rem] border border-dark/10 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
+                                    <span className={`inline-flex rounded-full border px-4 py-1 text-xs font-black uppercase tracking-[0.22em] ${item.badge}`}>
+                                        {item.quarter}
+                                    </span>
+                                    <p className="mt-5 font-heading text-2xl font-bold leading-snug text-dark">
+                                        {item.title}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
 
-                {/* Baseline connection line */}
-                <div className="absolute bottom-[28px] left-0 right-0 h-1 bg-white/10 z-0 mx-10"></div>
-
-                <div className="flex flex-nowrap items-end justify-between min-w-[800px] px-8 gap-4">
+                <div
+                    data-testid="roadmap-mobile"
+                    className="relative space-y-4 md:hidden"
+                >
+                    <div className="absolute bottom-4 left-[19px] top-4 w-px bg-dark/10" />
                     {milestones.map((item, index) => (
-                        <MilestoneBeam key={item.id} item={item} index={index} />
+                        <motion.div
+                            key={item.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-30px" }}
+                            transition={{ duration: 0.4, delay: index * 0.06 }}
+                            className="relative pl-12"
+                        >
+                            <div className={`absolute left-3 top-7 h-4 w-4 rounded-full border-4 border-white shadow-sm ${item.dot}`} />
+                            <div className="rounded-[1.75rem] border border-dark/10 bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                                <span className={`inline-flex rounded-full border px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] ${item.badge}`}>
+                                    {item.quarter}
+                                </span>
+                                <p className="mt-4 font-heading text-2xl font-bold leading-snug text-dark">
+                                    {item.title}
+                                </p>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
-
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                .hide-scrollbar::-webkit-scrollbar {
-                    display: none;
-                }
-                .hide-scrollbar {
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-                }
-            `}} />
         </section>
     );
 }
