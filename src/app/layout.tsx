@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Tech & Sun — Empowering Builders and Communities",
     description: "TAS builds dependable solar-powered hubs that give students, builders, and local communities in Nigeria steady access to electricity and internet.",
     url: "https://techandsun.com",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.png?v=20260405", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     creator: "@techandsunhub",
     title: "Tech & Sun — Empowering Builders and Communities",
     description: "TAS builds dependable solar-powered hubs that give students, builders, and local communities in Nigeria steady access to electricity and internet.",
-    images: ["/og-image.png"],
+    images: ["/og-image.png?v=20260405"],
   },
   icons: {
     apple: "/apple-touch-icon.png",
