@@ -20,18 +20,18 @@ const parts: StackItem[] = [
         description: "A lightweight tool for documenting hub development, sessions, workshops, and the day-to-day activity happening in the space."
     },
     {
+        id: "ethereum-staking-node",
+        name: "Ethereum Staking Node",
+        icon: "/Node.png",
+        color: "bg-dark text-white",
+        description: "On-site Ethereum staking infrastructure that helps secure the network while creating a revenue stream for hub operations."
+    },
+    {
         id: "starlink-internet",
         name: "Starlink Internet",
         icon: "/Internet (Starlink) green.png",
         color: "bg-accent text-white",
         description: "Dedicated Starlink connectivity that gives the hub reliable internet for classes, research, coordination, and project work."
-    },
-    {
-        id: "ethereum-staking-validator",
-        name: "Ethereum Staking Validator",
-        icon: "/Node.png",
-        color: "bg-dark text-white",
-        description: "On-site Ethereum staking infrastructure that helps secure the network while creating an additional on-chain revenue stream for the hub."
     },
     {
         id: "energy-storage",
