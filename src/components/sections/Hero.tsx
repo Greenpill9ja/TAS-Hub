@@ -92,7 +92,7 @@ export default function Hero() {
             </div>
 
             {/* Main Content Layout */}
-            <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-4 pt-20">
+            <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-start px-4 pb-44 pt-24 md:items-center md:pb-0 md:pt-20">
                 <div className="grid w-full grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
 
                     {/* Left Column: Copy */}
@@ -100,15 +100,15 @@ export default function Hero() {
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-xl pb-20 md:pb-0 lg:-translate-y-12"
+                        className="max-w-xl pb-8 md:pb-0 lg:-translate-y-12"
                     >
-                        <h1 className="font-heading text-5xl font-black leading-[1.05] text-dark md:text-5xl lg:text-[3.75rem]">
+                        <h1 className="font-heading text-[2.9rem] font-black leading-[1.02] text-dark sm:text-5xl md:text-5xl lg:text-[3.75rem]">
                             Tech and Sun <br />
                             <span className="text-primary">Empowering</span> <br />
                             Builders and Communities
                         </h1>
 
-                        <p className="mt-4 md:mt-6 max-w-lg font-body text-base text-dark/80 md:text-base lg:text-lg font-medium leading-relaxed">
+                        <p className="mt-3 max-w-lg font-body text-base font-medium leading-relaxed text-dark/80 md:mt-6 md:text-base lg:text-lg">
                             TAS builds dependable solar-powered hubs that give students,
                             builders, and local communities in Nigeria steady access to
                             electricity and internet providing a space to learn, build,
@@ -207,9 +207,9 @@ export default function Hero() {
 
             {/* Partners Section - Looping Animation */}
             <div className="absolute bottom-0 left-0 right-0 z-20">
-                <div className="mx-auto max-w-6xl rounded-t-[40px] bg-white/60 px-8 py-8 shadow-[0_-20px_50px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-colors duration-500 hover:bg-white md:py-10">
-                    <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-                        <div className="flex items-center gap-4 text-xs md:text-sm font-black uppercase tracking-[0.3em] text-dark/70 whitespace-nowrap">
+                <div className="mx-auto max-w-6xl rounded-t-[40px] bg-white/60 px-5 py-6 shadow-[0_-20px_50px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-colors duration-500 hover:bg-white sm:px-6 md:px-8 md:py-10">
+                    <div className="flex flex-col items-center justify-between gap-6 md:gap-8 md:flex-row">
+                        <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.24em] text-dark/70 whitespace-nowrap md:gap-4 md:text-sm md:tracking-[0.3em]">
                             <div className="h-px w-6 bg-dark/80" />
                             Strategic Partners
                         </div>
@@ -222,7 +222,7 @@ export default function Hero() {
                                     ease: "linear",
                                     duration: 20,
                                 }}
-                                className="flex w-max items-center gap-12 md:gap-16 pr-12"
+                                className="flex w-max items-center gap-8 pr-8 md:gap-16 md:pr-12"
                             >
                                 {/* First Set */}
                                 {[
@@ -233,11 +233,11 @@ export default function Hero() {
                                     { name: "M3tering Protocol", logo: "/m3tering protocol.png" },
                                     { name: "Switch Electric", logo: "/switch.png" }
                                 ].map((partner, idx) => (
-                                    <div key={`p1-${idx}`} className="group flex flex-nowrap items-center gap-4 transition-all">
-                                        <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-dark/10 bg-gray-50 p-1 shadow-sm">
+                                    <div key={`p1-${idx}`} className="group flex flex-nowrap items-center gap-3 transition-all md:gap-4">
+                                        <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full border border-dark/10 bg-gray-50 p-1 shadow-sm md:h-10 md:w-10">
                                             <Image src={partner.logo} alt={partner.name} width={40} height={40} className="h-full w-full object-contain" />
                                         </div>
-                                        <span className="font-heading text-xl font-extrabold tracking-tight text-dark/70 transition-colors group-hover:text-dark whitespace-nowrap">{partner.name}</span>
+                                        <span className="font-heading text-base font-extrabold tracking-tight text-dark/70 transition-colors group-hover:text-dark whitespace-nowrap md:text-xl">{partner.name}</span>
                                     </div>
                                 ))}
                                 {/* Second Set for seamless loop */}
@@ -249,11 +249,11 @@ export default function Hero() {
                                     { name: "M3tering Protocol", logo: "/m3tering protocol.png" },
                                     { name: "Switch Electric", logo: "/switch.png" }
                                 ].map((partner, idx) => (
-                                    <div key={`p2-${idx}`} className="group flex flex-nowrap items-center gap-4 transition-all">
-                                        <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-dark/10 bg-gray-50 p-1 shadow-sm">
+                                    <div key={`p2-${idx}`} className="group flex flex-nowrap items-center gap-3 transition-all md:gap-4">
+                                        <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full border border-dark/10 bg-gray-50 p-1 shadow-sm md:h-10 md:w-10">
                                             <Image src={partner.logo} alt={partner.name} width={40} height={40} className="h-full w-full object-contain" />
                                         </div>
-                                        <span className="font-heading text-xl font-extrabold tracking-tight text-dark/70 transition-colors group-hover:text-dark whitespace-nowrap">{partner.name}</span>
+                                        <span className="font-heading text-base font-extrabold tracking-tight text-dark/70 transition-colors group-hover:text-dark whitespace-nowrap md:text-xl">{partner.name}</span>
                                     </div>
                                 ))}
                             </motion.div>
