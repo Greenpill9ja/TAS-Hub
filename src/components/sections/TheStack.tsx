@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import Image from "next/image";
 
 type StackItem = {
     id: string;
@@ -90,7 +91,7 @@ export default function TheStack() {
 
                             <div className="mb-6 flex">
                                 <div className="flex rounded-2xl bg-white/20 p-4 shadow-inner">
-                                    <img src={item.icon} alt={item.name} className="h-12 w-12 object-contain" />
+                                    <Image src={item.icon} alt={item.name} width={48} height={48} className="h-12 w-12 object-contain" />
                                 </div>
                             </div>
 

@@ -3,6 +3,7 @@
 import { Twitter, Github, Linkedin } from "lucide-react";
 import { useActionState } from "react";
 import { submitContactForm } from "@/app/actions/contact";
+import Image from "next/image";
 
 type TeamMember = {
     slug: string;
@@ -59,7 +60,7 @@ export default function Footer() {
             role: "Treasury Manager",
             image: "/matt-strachman.jpeg",
             twitter: "https://x.com/MattyCompost",
-            linkedin: "https://www.linkedin.com/in/matt-strachman"
+            linkedin: "https://linkedin.com/in/matt-strachman"
         },
         {
             slug: "jon-ruth",
@@ -146,8 +147,8 @@ export default function Footer() {
                         <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-secondary/20 blur-[90px]" />
                         <div className="relative z-10 flex flex-col gap-6 sm:flex-row sm:items-center">
                             <div className="h-28 w-28 shrink-0 overflow-hidden rounded-full border-4 border-white/15 bg-white/5 p-1">
-                                <div className="h-full w-full overflow-hidden rounded-full bg-white/10">
-                                    <img src="/izzy.jpg" alt="Izzy" className="h-full w-full object-cover" />
+                                <div className="relative h-full w-full overflow-hidden rounded-full bg-white/10">
+                                    <Image src="/izzy.jpg" alt="Izzy" fill className="object-cover" />
                                 </div>
                             </div>
                             <div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Twitter, Github } from "lucide-react";
 import { useRef } from "react";
+import Image from "next/image";
 
 const floatingIconCards = [
     {
@@ -64,7 +65,7 @@ export default function Hero() {
             <header className="absolute top-0 left-0 right-0 z-50 w-full">
                 <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-6 md:py-10">
                     <div className="flex items-center gap-2">
-                        <img src="/Tas Logo-green.png" alt="TAS Logo" className="h-10 w-10 rounded-full" />
+                        <Image src="/Tas Logo-green.png" alt="TAS Logo" width={40} height={40} className="h-10 w-10 rounded-full" />
                     </div>
 
                     <div className="flex items-center gap-6">
@@ -86,7 +87,7 @@ export default function Hero() {
                     className="relative"
                 >
                     <div className="absolute inset-0 bg-secondary-400/30 blur-3xl rounded-full" />
-                    <img src="/sun.png" alt="Sun" className="h-32 w-32 md:h-48 md:w-48 brightness-110" />
+                    <Image src="/sun.png" alt="Sun" width={192} height={192} className="h-32 w-32 md:h-48 md:w-48 brightness-110" />
                 </motion.div>
             </div>
 
@@ -129,10 +130,11 @@ export default function Hero() {
                                 <div id="turbine-hub" className="absolute left-[72%] top-[31%] z-30 h-4 w-4 rounded-full bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)]" />
 
                                 {/* TAS */}
-                                <img
+                                <Image
                                     src="/tashub.png"
                                     alt="TAS Hub"
-                                    className="absolute bottom-0 right-0 h-[110%] object-contain opacity-90 brightness-110 [mask-image:radial-gradient(circle_at_center,black_40%,transparent_90%)]"
+                                    fill
+                                    className="absolute bottom-0 right-0 object-contain opacity-90 brightness-110 [mask-image:radial-gradient(circle_at_center,black_40%,transparent_90%)]"
                                 />
                             </div>
                         </div>
@@ -160,8 +162,8 @@ export default function Hero() {
                                 className="absolute z-20 flex flex-col items-center gap-2"
                             >
                                 <div className="group relative overflow-hidden rounded-2xl border border-white/80 bg-vibrant/40 p-1 backdrop-blur-md transition-all hover:scale-110 hover:bg-white/60 shadow-xl">
-                                    <div className="h-16 w-24 overflow-hidden rounded-xl bg-white/50">
-                                        <img src={card.icon} alt={card.title} className="h-full w-full object-contain p-1.5" />
+                                    <div className="relative h-16 w-24 overflow-hidden rounded-xl bg-white/50">
+                                        <Image src={card.icon} alt={card.title} width={96} height={64} className="h-full w-full object-contain p-1.5" />
                                     </div>
                                     <div className="py-1 text-center">
                                         <span className="text-[8px] font-black uppercase text-dark/70 tracking-tight whitespace-nowrap">{card.title}</span>
@@ -233,7 +235,7 @@ export default function Hero() {
                                 ].map((partner, idx) => (
                                     <div key={`p1-${idx}`} className="group flex flex-nowrap items-center gap-4 transition-all">
                                         <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-dark/10 bg-gray-50 p-1 shadow-sm">
-                                            <img src={partner.logo} alt={partner.name} className="h-full w-full object-contain" />
+                                            <Image src={partner.logo} alt={partner.name} width={40} height={40} className="h-full w-full object-contain" />
                                         </div>
                                         <span className="font-heading text-xl font-extrabold tracking-tight text-dark/70 transition-colors group-hover:text-dark whitespace-nowrap">{partner.name}</span>
                                     </div>
@@ -249,7 +251,7 @@ export default function Hero() {
                                 ].map((partner, idx) => (
                                     <div key={`p2-${idx}`} className="group flex flex-nowrap items-center gap-4 transition-all">
                                         <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-dark/10 bg-gray-50 p-1 shadow-sm">
-                                            <img src={partner.logo} alt={partner.name} className="h-full w-full object-contain" />
+                                            <Image src={partner.logo} alt={partner.name} width={40} height={40} className="h-full w-full object-contain" />
                                         </div>
                                         <span className="font-heading text-xl font-extrabold tracking-tight text-dark/70 transition-colors group-hover:text-dark whitespace-nowrap">{partner.name}</span>
                                     </div>
