@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import Image from "next/image";
 
 type StackItem = {
     id: string;
@@ -20,18 +21,18 @@ const parts: StackItem[] = [
         description: "A lightweight tool for documenting hub development, sessions, workshops, and the day-to-day activity happening in the space."
     },
     {
+        id: "ethereum-staking-node",
+        name: "Ethereum Staking Node",
+        icon: "/Node.png",
+        color: "bg-dark text-white",
+        description: "On-site Ethereum staking infrastructure that helps secure the network while creating a revenue stream for hub operations."
+    },
+    {
         id: "starlink-internet",
         name: "Starlink Internet",
         icon: "/Internet (Starlink) green.png",
         color: "bg-accent text-white",
         description: "Dedicated Starlink connectivity that gives the hub reliable internet for classes, research, coordination, and project work."
-    },
-    {
-        id: "ethereum-staking-validator",
-        name: "Ethereum Staking Validator",
-        icon: "/Node.png",
-        color: "bg-dark text-white",
-        description: "On-site Ethereum staking infrastructure that helps secure the network while creating an additional on-chain revenue stream for the hub."
     },
     {
         id: "energy-storage",
@@ -90,7 +91,7 @@ export default function TheStack() {
 
                             <div className="mb-6 flex">
                                 <div className="flex rounded-2xl bg-white/20 p-4 shadow-inner">
-                                    <img src={item.icon} alt={item.name} className="h-12 w-12 object-contain" />
+                                    <Image src={item.icon} alt={item.name} width={48} height={48} className="h-12 w-12 object-contain" />
                                 </div>
                             </div>
 

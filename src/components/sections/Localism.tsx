@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { AnimatedLines } from "../ui/AnimatedLines";
 import { Calendar, X, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 interface Hub {
     id: string;
@@ -91,7 +92,7 @@ export default function Localism() {
                         className={`group relative w-full h-full max-w-md overflow-hidden flex flex-col rounded-3xl border ${hub.border} bg-white shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer`}
                     >
                         <div className="aspect-[4/3] w-full bg-dark/5 relative overflow-hidden shrink-0">
-                            <img src={hub.image} alt={hub.name} className="w-full h-full object-cover" />
+                            <Image src={hub.image} alt={hub.name} fill className="object-cover" />
                             <div className={`absolute inset-0 ${hub.overlay} mix-blend-multiply group-hover:bg-transparent transition-colors duration-500`}></div>
 
                             {/* Status Indicator */}
@@ -138,7 +139,7 @@ export default function Localism() {
                             className="relative w-full max-w-2xl bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
                         >
                             <div className="h-48 md:h-64 w-full relative shrink-0">
-                                <img src={selectedHub.image} alt={selectedHub.name} className="w-full h-full object-cover" />
+                                <Image src={selectedHub.image} alt={selectedHub.name} fill className="object-cover" />
                                 <div className={`absolute inset-0 ${selectedHub.overlay} mix-blend-multiply`}></div>
                                 <button
                                     onClick={() => setSelectedHub(null)}

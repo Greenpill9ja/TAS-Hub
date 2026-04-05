@@ -2,6 +2,7 @@
 
 import { Calendar, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function HubActivities() {
     // Placeholder activities data
@@ -81,7 +82,7 @@ export default function HubActivities() {
                             >
                                 {/* Faint Card Background Icon */}
                                 <div className="absolute -right-4 -bottom-4 w-32 h-32 opacity-10 grayscale pointer-events-none rotate-12">
-                                    <img src={bgIcon} alt="" className="w-full h-full object-contain" />
+                                    <Image src={bgIcon} alt="" width={128} height={128} className="w-full h-full object-contain" />
                                 </div>
 
                                 <div className="relative z-10 flex justify-between items-start mb-4 md:mb-6">

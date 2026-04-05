@@ -15,8 +15,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Tech & Sun (TAS)",
-  description: "Bridging industrial solar tech with Ethereum public goods.",
+  metadataBase: new URL("https://techandsun.com"),
+  title: "Tech & Sun (TAS) — Empowering Builders and Communities",
+  description: "TAS builds dependable solar-powered hubs that give students, builders, and local communities in Nigeria steady access to electricity and internet.",
+  alternates: {
+    canonical: "https://techandsun.com",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Tech & Sun",
+    title: "Tech & Sun — Empowering Builders and Communities",
+    description: "TAS builds dependable solar-powered hubs that give students, builders, and local communities in Nigeria steady access to electricity and internet.",
+    url: "https://techandsun.com",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@techandsunhub",
+    creator: "@techandsunhub",
+    title: "Tech & Sun — Empowering Builders and Communities",
+    description: "TAS builds dependable solar-powered hubs that give students, builders, and local communities in Nigeria steady access to electricity and internet.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -26,6 +49,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Tech & Sun (TAS)",
+              url: "https://techandsun.com",
+              logo: "https://techandsun.com/Tas Logo-green.png",
+              description: "TAS builds dependable solar-powered hubs that give students, builders, and local communities in Nigeria steady access to electricity and internet.",
+              sameAs: [
+                "https://x.com/techandsunhub",
+                "https://github.com/Greenpill9ja",
+              ],
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} bg-gradient-to-b from-white to-vibrant min-h-screen text-dark font-body antialiased`}
       >
