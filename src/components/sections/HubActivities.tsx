@@ -1,7 +1,6 @@
 "use client";
 
-import { Calendar, ArrowRight, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { Calendar, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function HubActivities() {

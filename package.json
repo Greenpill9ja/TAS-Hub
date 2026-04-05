@@ -2,15 +2,27 @@
   "name": "tas",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "bun@1.3.10",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "bun run lint && bun run typecheck && bun run build",
+    "validate:quick": "bun run lint && bun run typecheck",
+    "start:smoke": "next start --hostname 127.0.0.1 --port 3300",
+    "test:smoke": "bun run build && playwright test",
+    "validate:smoke": "bun run check && playwright test"
+  },
+  "engines": {
+    "node": "22.22.1",
+    "bun": "1.3.10"
   },
   "dependencies": {
     "@splinetool/react-spline": "^4.1.0",
     "@studio-freight/lenis": "^1.0.42",
+    "@vercel/postgres": "^0.10.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.3",
     "lenis": "^1.3.17",
@@ -22,6 +34,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@playwright/test": "^1.55.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Activity } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
 
 interface CounterProps {
     end: number;
@@ -32,6 +31,14 @@ function Counter({ end, duration = 2000, suffix = "" }: CounterProps) {
 
 interface ImpactTrackerProps {
     variant?: "sticky" | "inline";
+}
+
+interface TrackerCardProps {
+    icon: ReactNode;
+    title: string;
+    value: ReactNode;
+    subtitle: string;
+    active?: boolean;
 }
 
 export default function ImpactTracker({ variant = "sticky" }: ImpactTrackerProps) {
@@ -82,7 +89,7 @@ export default function ImpactTracker({ variant = "sticky" }: ImpactTrackerProps
     );
 }
 
-function TrackerCard({ icon, title, value, subtitle, active }: any) {
+function TrackerCard({ icon, title, value, subtitle, active }: TrackerCardProps) {
     return (
         <div className="flex w-64 items-center gap-4 rounded-2xl border border-primary/20 bg-white p-4 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
             <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 shadow-inner">
