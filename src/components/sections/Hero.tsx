@@ -16,7 +16,7 @@ const floatingIconCards = [
     },
     {
         id: "Starlink",
-        title: "Starlink Internet",
+        title: "Internet",
         icon: "/Internet (Starlink) green.png",
         position: { top: "5%", right: "50px" },
         delay: 0.5,
@@ -80,14 +80,14 @@ export default function Hero() {
             </header>
 
             {/* Sun Illustration */}
-            <div className="absolute top-10 left-1/2 -translate-x-1/2 z-0">
+            <div id="hero-sun" className="absolute top-10 left-1/2 -translate-x-1/2 z-0">
                 <motion.div
                     animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                     className="relative"
                 >
                     <div className="absolute inset-0 bg-secondary-400/30 blur-3xl rounded-full" />
-                    <Image src="/sun.png" alt="Sun" width={192} height={192} className="h-32 w-32 md:h-48 md:w-48 brightness-110" />
+                    <Image src="/sun.png" alt="Sun" width={288} height={288} className="h-48 w-48 md:h-72 md:w-72 brightness-110" />
                 </motion.div>
             </div>
 
@@ -226,7 +226,7 @@ export default function Hero() {
                             >
                                 {/* First Set */}
                                 {[
-                                    { name: "Greenpill Network", logo: "/greenpill-network.webp" },
+                                    { name: "Greenpill Network", logo: "/greenpill-network.png" },
                                     { name: "Greenpill Nigeria", logo: "/greenpillnaija.png" },
                                     { name: "Greenpill Dev Guild", logo: "/Dev-Guild.png" },
                                     { name: "Localism", logo: "/Localism.png" },
@@ -242,7 +242,7 @@ export default function Hero() {
                                 ))}
                                 {/* Second Set for seamless loop */}
                                 {[
-                                    { name: "Greenpill Network", logo: "/greenpill-network.webp" },
+                                    { name: "Greenpill Network", logo: "/greenpill-network.png" },
                                     { name: "Greenpill Nigeria", logo: "/greenpillnaija.png" },
                                     { name: "Greenpill Dev Guild", logo: "/Dev-Guild.png" },
                                     { name: "Localism", logo: "/Localism.png" },

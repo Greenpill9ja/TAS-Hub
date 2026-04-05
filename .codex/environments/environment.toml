@@ -1,0 +1,66 @@
+version = 1
+name = "tas-hub"
+
+[setup]
+script = '''
+set -euo pipefail
+
+if [ -f mise.toml ] && command -v mise >/dev/null 2>&1; then
+  mise install
+  eval "$(mise activate bash)"
+fi
+
+node --version
+npm --version
+npm ci
+npx playwright install chromium
+'''
+
+[[actions]]
+name = "Dev"
+icon = "run"
+command = '''
+npm run dev
+'''
+
+[[actions]]
+name = "Lint"
+icon = "check"
+command = '''
+npm run lint
+'''
+
+[[actions]]
+name = "Typecheck"
+icon = "check"
+command = '''
+npm run typecheck
+'''
+
+[[actions]]
+name = "Build"
+icon = "build"
+command = '''
+npm run build
+'''
+
+[[actions]]
+name = "Check"
+icon = "check"
+command = '''
+npm run check
+'''
+
+[[actions]]
+name = "Validate: Quick"
+icon = "tool"
+command = '''
+npm run validate:quick
+'''
+
+[[actions]]
+name = "Validate: Smoke"
+icon = "tool"
+command = '''
+npm run validate:smoke
+'''
