@@ -29,6 +29,7 @@ export default function Footer() {
             role: "Director of Local Operations",
             image: "/amio.jpg",
             twitter: "https://x.com/amioantho",
+            linkedin: "https://www.linkedin.com/in/anthony-okoye-0b801b1a5?utm_source=share_via&utm_content=profile&utm_medium=member_android",
         },
         {
             slug: "mmeri-anosike",
