@@ -92,7 +92,7 @@ export default function Hero() {
             </div>
 
             {/* Main Content Layout */}
-            <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-start px-4 pb-44 pt-24 md:items-center md:pb-0 md:pt-20">
+            <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-4 pb-28 pt-20 md:pb-0">
                 <div className="grid w-full grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
 
                     {/* Left Column: Copy */}
@@ -100,7 +100,7 @@ export default function Hero() {
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-xl pb-8 md:pb-0 lg:-translate-y-12"
+                        className="max-w-xl pb-10 md:pb-0 lg:-translate-y-12"
                     >
                         <h1 className="font-heading text-[2.9rem] font-black leading-[1.02] text-dark sm:text-5xl md:text-5xl lg:text-[3.75rem]">
                             Tech and Sun <br />
