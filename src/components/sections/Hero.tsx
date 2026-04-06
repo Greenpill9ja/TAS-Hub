@@ -65,7 +65,13 @@ export default function Hero() {
             <header className="absolute top-0 left-0 right-0 z-50 w-full">
                 <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-6 md:py-10">
                     <div className="flex items-center gap-2">
-                        <Image src="/Tas Logo-green.png" alt="TAS Logo" width={40} height={40} className="h-10 w-10 rounded-full" />
+                        <Image
+                            src="/Tas Logo-green.png"
+                            alt="TAS Logo"
+                            width={40}
+                            height={40}
+                            className="h-10 w-10 rounded-full md:h-12 md:w-12 lg:h-14 lg:w-14"
+                        />
                     </div>
 
                     <div className="flex items-center gap-6">
