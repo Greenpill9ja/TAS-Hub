@@ -22,6 +22,12 @@ Create an execution-ready backlog for adopting modern CSS and Web UI primitives 
 - Each future primitive promotion should capture regression risk, vulnerable surfaces, fallback behavior, proof required, existing abstraction fit, and reversibility before runtime work starts.
 - Do not run `bun run validate:quick`, `bun run check`, or `bun run validate:smoke` unless future runtime files change.
 
+## Next Proof Task
+
+- Keep this plan-only until a homepage/contact runtime change is scoped. The next proof task is an isolated Chrome DevTools MCP or `bun run validate:smoke` pass for the changed public route, capturing route URL, viewport, screenshot or ARIA/DOM snapshot, console/page errors, useful network notes, `/llms.txt`, reduced-motion behavior, and `list_webmcp_tools`.
+- Keep CWV planning proportional to the lean public site: capture LCP, INP, CLS, route label, `navigationType`, and reduced-motion state only when performance work is actually scoped. Use Lighthouse/smoke proof before adding RUM.
+- Keep runtime WebMCP frozen. Any future homepage/contact read-only tool candidate needs an approval spec covering candidate visible tools, forbidden tools, confirmation rules, public/privacy boundary, schema tests, wrong-tool/wrong-argument evals, and proof commands.
+
 ## Assumptions
 
 - TAS Hub's current `.plans` format remains authoritative.
