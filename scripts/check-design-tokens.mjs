@@ -17,8 +17,18 @@ const checks = [
   ['VIEWPORT_100VW', /100vw/],
   ['VIEWPORT_100VH', /\b(?:100vh|90vh)\b/],
   ['MOTION_LIBRARY', /from\s+["']framer-motion["']/],
-  ['SMOOTH_SCROLL', /from\s+["']lenis\/react["']/],
+  ['SMOOTH_SCROLL', /from\s+["']lenis\/react["']|\bReactLenis\b|\bnew\s+Lenis\b/],
   ['SPLINE_RUNTIME', /@splinetool\/react-spline|<Spline\b/],
+  ['CANVAS_RUNTIME', /<canvas\b|\bgetContext\(["']2d["']\)|\bCanvasRenderingContext2D\b/],
+];
+
+const requiredThemeTokens = [
+  '--color-primary',
+  '--color-secondary',
+  '--color-accent',
+  '--color-vibrant',
+  '--color-dark',
+  '--color-light-green',
 ];
 
 function walk(dir, files = []) {
@@ -69,10 +79,6 @@ function collectHits() {
   return hits;
 }
 
-function matchesBaseline(hit, baseline) {
-  return baseline.some((entry) => entry.file === hit.file && entry.code === hit.code && hit.text.includes(entry.needle));
-}
-
 function writeBaseline(hits) {
   const lines = [
     '# file\tcode\tneedle\treason',
@@ -82,10 +88,52 @@ function writeBaseline(hits) {
   writeFileSync(baselinePath, lines.join('\n'));
 }
 
+function assertThemeContract() {
+  const globalsPath = path.join(repoRoot, 'src/app/globals.css');
+  if (!existsSync(globalsPath)) {
+    console.error('Missing Tailwind theme source: src/app/globals.css');
+    process.exit(1);
+  }
+
+  const globals = readFileSync(globalsPath, 'utf8');
+  if (!/@theme\s*\{/.test(globals)) {
+    console.error('Missing Tailwind v4 @theme block in src/app/globals.css');
+    process.exit(1);
+  }
+
+  const missing = requiredThemeTokens.filter((token) => !new RegExp(`${token}\\s*:`).test(globals));
+  if (missing.length) {
+    console.error('Missing required TAS Hub Tailwind theme token(s):');
+    for (const token of missing) console.error(`  ${token}`);
+    process.exit(1);
+  }
+}
+
+function partitionBaselineMatches(hits, baseline) {
+  const remaining = baseline.map((entry) => ({ ...entry, matched: false }));
+  const unapproved = [];
+
+  for (const hit of hits) {
+    const match = remaining.find((entry) => !entry.matched && entry.file === hit.file && entry.code === hit.code && hit.text.includes(entry.needle));
+    if (match) {
+      match.matched = true;
+    } else {
+      unapproved.push(hit);
+    }
+  }
+
+  return {
+    unapproved,
+    stale: remaining.filter((entry) => !entry.matched),
+  };
+}
+
 if (!existsSync(path.join(repoRoot, 'DESIGN.md'))) {
   console.error('Missing root DESIGN.md');
   process.exit(1);
 }
+
+assertThemeContract();
 
 const hits = collectHits();
 if (process.argv.includes('--write-baseline')) {
@@ -95,8 +143,7 @@ if (process.argv.includes('--write-baseline')) {
 }
 
 const baseline = loadBaseline();
-const unapproved = hits.filter((hit) => !matchesBaseline(hit, baseline));
-const stale = baseline.filter((entry) => !hits.some((hit) => entry.file === hit.file && entry.code === hit.code && hit.text.includes(entry.needle)));
+const { unapproved, stale } = partitionBaselineMatches(hits, baseline);
 
 if (unapproved.length || stale.length) {
   if (unapproved.length) {
