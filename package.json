@@ -11,6 +11,10 @@
     "typecheck": "tsc --noEmit",
     "check": "bun run lint && bun run typecheck && bun run build",
     "validate:quick": "bun run lint && bun run typecheck",
+    "agentic:check": "bun run check:design-tokens && bun run validate:quick",
+    "check:design-tokens": "node scripts/check-design-tokens.mjs",
+    "agentic:browser-proof": "bun run validate:smoke",
+    "agentic:verify": "bun run validate:smoke",
     "start:smoke": "next start --hostname 127.0.0.1 --port 3300",
     "test:smoke": "bun run build && playwright test",
     "validate:smoke": "bun run check && playwright test"

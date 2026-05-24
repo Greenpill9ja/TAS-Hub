@@ -52,6 +52,20 @@ small planning surface.
 - Browser smoke: `bun run test:smoke`
 - Full local release gate: `bun run validate:smoke`
 
+## Agentic Modern Web Standard
+
+- Baseline target: Baseline Widely Available. Before frontend, UI, CSS, accessibility, browser proof, motion, 3D, or web-design changes, use Modern Web Guidance search/retrieve and then apply this repo's lean Next.js constraints.
+- Prefer semantic HTML, native controls, platform CSS, and browser primitives before custom JavaScript. Keep landmarks, headings, links, buttons, forms, accessible names, focus states, touch targets, loading/error/empty states, and reduced-motion behavior clear in the rendered DOM and accessibility tree.
+- Run `bun run agentic:check` for the design-token guard plus quick lane. Use `bun run agentic:browser-proof` (same heavier lane as `agentic:verify`) when smoke proof is warranted by navigation, rendering, CTA, motion, or public route changes.
+- The browser-proof lane writes screenshots, ARIA snapshots, `/llms.txt` status, console/page error status, reduced-motion status, and WebMCP discovery JSON to `output/playwright/agentic-browser-proof/`.
+- WebMCP is strategy-only in v1. Do not ship runtime WebMCP tools unless explicitly requested; future tools must be visible, user-confirmable, public-safe, and must not expose private leads, database credentials, hidden admin actions, destructive operations, or background-only actions.
+
+## Design System Guardrails
+
+- Load `DESIGN.md`, `src/app/globals.css`, and the touched section/component before UI/CSS work.
+- Run `bun run check:design-tokens` for UI/CSS changes; it blocks new raw colors, arbitrary Tailwind styling, viewport shortcuts, and motion/canvas risks unless they are intentionally recorded in `scripts/data/design-token-baseline.tsv`.
+- Preserve the current TAS visual direction: bright solar palette, local-builder narrative, and public marketing clarity. Do not introduce a generic SaaS dashboard language.
+
 ## Scope Discipline
 
 - When the user asks to plan, audit, review, or explain, stay read-only unless
