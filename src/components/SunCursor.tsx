@@ -1,10 +1,27 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useSyncExternalStore } from "react";
 import { motion, useSpring } from "framer-motion";
 
+const POINTER_FINE_QUERY = "(pointer: fine)";
+
+const getPointerFineSnapshot = () =>
+    typeof window !== "undefined" ? window.matchMedia(POINTER_FINE_QUERY).matches : false;
+
+const subscribePointerFine = (callback: () => void) => {
+    if (typeof window === "undefined") return () => {};
+
+    const mediaQuery = window.matchMedia(POINTER_FINE_QUERY);
+    mediaQuery.addEventListener("change", callback);
+    return () => mediaQuery.removeEventListener("change", callback);
+};
+
 export default function SunCursor() {
-    const [isDesktop, setIsDesktop] = useState(false);
+    const isDesktop = useSyncExternalStore(
+        subscribePointerFine,
+        getPointerFineSnapshot,
+        () => false
+    );
     const [hidden, setHidden] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const trackingActive = useRef(false);
@@ -12,15 +29,6 @@ export default function SunCursor() {
     const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
     const cursorX = useSpring(0, springConfig);
     const cursorY = useSpring(0, springConfig);
-
-    // Desktop detection
-    useEffect(() => {
-        const mq = window.matchMedia("(pointer: fine)");
-        setIsDesktop(mq.matches);
-        const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
-        mq.addEventListener("change", handler);
-        return () => mq.removeEventListener("change", handler);
-    }, []);
 
     // Main cursor logic
     useEffect(() => {
