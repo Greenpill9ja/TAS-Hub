@@ -58,7 +58,7 @@ small planning surface.
 - Prefer semantic HTML, native controls, platform CSS, and browser primitives before custom JavaScript. Keep landmarks, headings, links, buttons, forms, accessible names, focus states, touch targets, loading/error/empty states, and reduced-motion behavior clear in the rendered DOM and accessibility tree.
 - Run `bun run agentic:check` for the design-token guard plus quick lane. Use `bun run agentic:browser-proof` (same heavier lane as `agentic:verify`) when smoke proof is warranted by navigation, rendering, CTA, motion, or public route changes.
 - The browser-proof lane writes screenshots, ARIA snapshots, `/llms.txt` status, console/page error status, reduced-motion status, and WebMCP discovery JSON to `output/playwright/agentic-browser-proof/`.
-- WebMCP is strategy-only in v1. Do not ship runtime WebMCP tools unless explicitly requested; future tools must be visible, user-confirmable, public-safe, and must not expose private leads, database credentials, hidden admin actions, destructive operations, or background-only actions.
+- WebMCP is strategy-only in v1. Do not ship runtime WebMCP tools unless explicitly requested; future tools must follow `docs/agentic-webmcp-strategy.md`, stay visible/user-confirmable/public-safe, and must not expose private leads, database credentials, hidden admin actions, destructive operations, or background-only actions.
 
 ## Design System Guardrails
 
